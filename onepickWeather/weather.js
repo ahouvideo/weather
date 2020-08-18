@@ -56,7 +56,7 @@ $(function () {
                 type: 'get',
                 data: {
                     //ip 可不填
-                    key: 'ACTBZ-GTCRK-RPWJW-ACWO6-HHNZ5-57FE5',
+                    key: '自己的key即可',
                     output: 'jsonp'
                 },
                 url: 'https://apis.map.qq.com/ws/location/v1/ip',
@@ -64,11 +64,11 @@ $(function () {
                 dataType: 'jsonp',
                 jsonp: 'callback',
                 success: function (data) {
-                    console.log('data=', data);
-                    //city内容 为data.result.ad_info.city
+                   
+                    
                     $('.city').text(data.result.ad_info.city);
 
-                    // console.log('kkkk',data.result.ad_info.city.slice(0, -1))
+                    
                     //获取定位城市的实况天气
                     self.getcurrentWeather(data.result.ad_info.city);
 
@@ -87,15 +87,15 @@ $(function () {
         //实况天气 
         getcurrentWeather(city) {
             $.ajax({
-                // 请求参数 location ：city
+               
                 type: 'get',
-                // url: baseUrl + 'now' +'?',
+              
                 url: "https://yiketianqi.com/api",
 
                 data: {
-                    appid: '38397969',
-                    appsecret: '5qIUrfZT',
-                    version: 'v6',
+                    appid: '自己的id',
+                    appsecret: '自己的密钥',
+                    version: '版本号',
                     city: city.slice(0, -1),
                 },
                 success: function (data) {
@@ -109,21 +109,16 @@ $(function () {
 
                     //根据 属性名 遍历获取 给wind在视图 设置 属性名遍历
                     let $divs = $('.windlist>div');
-                    // console.log('divs=',$divs[0])
-                    // console.log('class=',$('.wind')[0])
+                    
                     $divs.each((i, v) => { //i下标，v元素
                         //获取 data-name 和data-title
 
                         let dataName = $(v).data('name');
                         let dataTitle = $(v).data('title');
 
-                        // console.log('dataName=', dataName)
-
-                        // console.log('属性名内容=', $(v).find('.' + dataName))
-
                         //找到 data-name= wind_win.  属性data[属性名]
                         $(v).find('.' + dataName).text(data[dataName])
-                        //console.log('data.visibility=',data.visibility)0,1,2
+                        
 
                         if (dataTitle) {
                             $(v).find('.' + dataTitle).text(data[dataTitle])
@@ -179,7 +174,6 @@ $(function () {
 
             </div>
             `
-            
             $('.weatherTips').append(tipses);
         }
 
@@ -190,7 +184,7 @@ $(function () {
             let forecastWeather = JSON.parse(localStorage.getItem('forecastWeather'));
             //今天天气存在 根据时间date 就return  减少请求次数
             if (forecastWeather.daily.length > 0) {
-                console.log('逐日天气已存在==');
+
                 //获取当前日期   时间不一致getTime 
                 let currentDate = new Date().toLocaleDateString().split('/');
                 currentDate[1] = currentDate[1] > 9 ? currentDate[1] : '0' + currentDate[1];
@@ -210,17 +204,16 @@ $(function () {
                 type: 'GET',
                 url: 'https://tianqiapi.com/api',
                 data: {
-                    version: 'v1',
-                    appid: '38397969',
-                    appsecret: '5qIUrfZT',
+                    appid: '自己的id',
+                    appsecret: '自己的密钥',
+                    version: '版本号',
                     city: city.slice(0, -1),
                 },
                 success: function (res) {
                     console.log('7天res==', res);
 
-                    // $('.tips').text(data.msg);
                     let weatherlist = res.data;
-                    console.log('weatherlist=', weatherlist)
+              
 
                     //先改数据再写入
                     //调用方法createDaily 数据存储
@@ -236,14 +229,12 @@ $(function () {
         // 创建逐时天气
         createHourly(weatherlistHours) {
 
-            // console.log('weatherlistHours=', weatherlistHours)
             $('.weather-datas').empty();
             //设置宽度
             $('.weather-datas').css({
                 width: weatherlistHours.length * 0.62 + 'rem'
             })
-            //设置低温、最高温
-            // $('tem').text(weatherlist.tem2+'~'+ weatherlist.tem1);
+
 
             //遍历生成
             weatherlistHours.forEach((v) => {
@@ -280,10 +271,10 @@ $(function () {
                 console.log('逐时天气已存在==');
                 //处理时间 日 时
                 let currentHour = self.getTime();
-                // console.log('currentHour==', currentHour);
+
 
                 let currentWeatherHour = forecastWeather.hourly[0].day;
-                // console.log('currentWeatherHour==', currentWeatherHour);
+   
 
                 if (currentHour == currentWeatherHour) {
                     self.createHourly(forecastWeather.hourly);
@@ -296,17 +287,15 @@ $(function () {
                 type: 'GET',
                 url: 'https://tianqiapi.com/api',
                 data: {
-                    version: 'v1',
-                    appid: '38397969',
-                    appsecret: '5qIUrfZT',
+                    appid: '自己的id',
+                    appsecret: '自己的密钥',
+                    version: '版本号',
                     city: city.slice(0, -1),
                 },
                 success: function (res) {
-                    console.log('逐小时res==', res);
-                    // $('.tips').text(data.msg);
 
                     let weatherlistHours = res.data[0].hours;
-                    console.log('weatherlistHours=', weatherlistHours)
+
 
                     self.createHourly(weatherlistHours);
                     forecastWeather.hourly = weatherlistHours;
@@ -371,7 +360,7 @@ $(function () {
     let weather = new Weather();
     weather.init();
     //点击切换标签 拿到宽度=  index*宽度 = 移动left
-    //关联属性名   。动态调用方法.封装方法class
+  
     let dp = 'weekWeather';
     $('.day>div').on('click', function () {
 
