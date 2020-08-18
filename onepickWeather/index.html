@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>云知道天气预报</title>
+    <link rel="stylesheet" href="./weather.css">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_1679979_lcs76dc7ehl.css">
+</head>
+
+<body>
+    <div class="weather">
+        <!-- system系统状态栏 信号网络时间 -->
+        <div class="system"></div>
+        <div class="weather-box">
+            <!-- 导航栏 -->
+            <div class="nav">
+                <div class="nav-box fl">
+
+                    <div class="city fl"></div>
+                    <div class="menu fl">
+                        <span class="iconfont icon-location"></span>
+                    </div>
+                </div>
+                <!-- 搜索search  输入城市 和 图标-->
+                <div class="search fl">
+                    <input class="search-input fl" type="text" placeholder="请输入城市">
+                    <span class="search-icon fl">
+                        <i class="iconfont icon-search"></i>
+                    </span>
+
+
+                </div>
+            </div>
+            <!-- 实况天气 温度-->
+            <div class="weatherStatus">
+                <div class="weather-tem">20℃</div>
+                <div class="min-max">
+                    <span class="status ">晴10 ~ 20</span>
+
+                </div>
+                <!-- 可见度 湿度 风向 三部分-->
+                <div class="see-box">
+                    <!-- 布局 -->
+                    <div class="windlist clearfix">
+
+                        <div class="wind" data-name='win_speed' data-title='win'>
+                            <div class="text">
+                                <div class='win_speed'>3级</div>
+                                <div class='win'>东北风</div>
+                            </div>
+                        </div>
+                        <i class="line1"></i>
+
+                        <div class="wind" data-name='visibility'>
+                            <div class="text">
+                                <div class='visibility'>24km/h</div>
+                                <div>可见度</div>
+                            </div>
+                        </div>
+                        <i class="line2"></i>
+
+                        <div class="wind" data-name='humidity'>
+                            <div class="text">
+                                <div class='humidity'>15%</div>
+                                <div>湿度</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="tips">未来6小时出现暴雨</div>
+                </div>
+                <!--  逐日 逐时 -->
+                <div class="everyTime">
+                    <div class="day clearfix">
+                        <div class="fl" data-fn="weekWeather">逐日预报</div>
+                        <div class="fl" data-fn="weekWeatherHours">逐时预报</div>
+                        <i class="moveLine"></i>
+                    </div>
+                    <!-- 天气数据 每5天 -->
+                    <div class="weatherData">
+                        <div class="weather-datas clearfix">
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- 提示tips -->
+            <div class="weatherTips">
+                
+
+            </div>
+        </div>
+
+    </div>
+
+    <script src="./jquery-3.4.1.min.js"></script>
+    <script src="./weather.js"></script>
+    <script src="./rem.js"></script>
+</body>
+
+</html>

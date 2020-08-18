@@ -1,0 +1,295 @@
+html,body,.weather{
+    height: 100%;
+}
+body{
+    margin: 0 auto;
+    //控制全局fontsize
+    font-size: 16px;
+    background-color: #fff;
+}
+.clearfix::after{
+    content: '';
+    clear: both;
+    display: block;
+}
+.fl{
+    float: left;
+} 
+.fr{
+    float: right;
+}
+
+.weather{
+    // background-color: antiquewhite;
+    // 图片尺寸 宽1080 高1920
+    // background-image: url();
+    // background-repeat: no-repeat;
+    // background-position: center center;
+    // background-size: cover;
+    background-image: linear-gradient(to bottom, #56abfb,#9ecefe);
+    padding: 0 .1rem;
+}
+.system{
+    height: 24px;
+    // background-color: lemonchiffon; 
+}
+// 导航栏
+.nav{
+    height: .3rem;
+    
+    // background-color: #f0f0f0;
+    text-align: center;
+    color: #fff;
+    position: relative;
+}
+.nav-box{
+    width: 1.1rem;
+    height: .3rem;
+    line-height: .3rem;
+}
+.nav .city{
+    max-width:.8rem;
+    white-space: nowrap;
+    overflow: hidden;
+    line-height: .3rem;
+    text-overflow: ellipsis;
+}
+.menu{
+    // position: absolute;
+    // right: 0;
+    // top: 0;
+    width: .3rem;
+    height: .3rem;
+    // font-size: .2rem;
+    // background: url('../imgs/location.png') no-repeat center center;
+    .iconfont{
+        font-size: .22rem !important;
+    }
+} 
+// 搜索
+.search{
+    height: .3rem;
+    line-height: .3rem;
+    width: calc(100% - 1.1rem - .3rem);
+    // 渐变
+    background-image:linear-gradient(to right, rgba(255,255,255,.15),rgba(255,255,255,.35) );
+    border-radius: .15rem;
+    padding: 0 .15rem;
+    
+
+}
+.search-input{
+    width: calc(100% - .4rem);
+    height:.3rem ;
+
+    font-size: .14rem;
+    color:#fff;
+    outline: none;
+    border: none;
+    padding: 0;
+    // margin: 0;
+    background-color: transparent;
+}
+.search-icon{
+    display: block;
+    width: .3rem;
+    height: .3rem;
+    // font-weight: bold;
+    // line-height: .3rem;
+    // margin-top: .03rem;
+    // background-color: black;
+    margin-left: .1rem;
+    // background: url('../imgs/search.png') no-repeat center center;
+    .iconfont{
+        font-size: .22rem !important;
+    }
+}
+// 实况天气
+.weatherStatus{
+    // height: 1.6rem; -.84
+    height: 4.4rem;
+    margin-top: .2rem;
+    // background-color: #666;
+}
+.weather-tem{
+    color:#fff;
+    font-size: .48rem;
+    text-align: center;
+    height: .64rem;
+}
+// 温度情况
+.min-max{
+    height: .2rem;
+    font-size: .12rem;
+    line-height: .2rem;
+    // width: .6rem;
+    // tem .4
+    text-align: center;
+    color: #fff;
+    margin: 0 auto;
+}
+.status{
+    width: .24rem;
+    // margin-right: .1rem ;
+}
+// .tem{
+//     width: .36rem;
+// }
+
+.see-box{
+    width: 2.8rem;
+    height: .8rem;
+    // background-color: #a1a1aa;
+    margin-top: .4rem;
+    margin: .1rem auto;
+    color: #f0f0f0;
+    padding-bottom: .2rem;
+}
+.windlist{
+    position: relative;
+    margin: 0 auto;
+    // padding-top: .1rem;
+    // height: 100%;
+    
+    width: 100%;
+}
+.windlist .wind{
+    float: left;
+    // width: 100%;
+    width: 33.3333%;
+    height: .4rem;
+    // position: relative;
+    font-size: .13rem;
+    // margin: 0 auto;
+
+
+}
+.text{
+    // display: flex;
+    // align-items: center;
+    height: 100%;
+    // transform: translate(-50%,-50%);
+    width: 100%;
+}
+.text div{
+    // width: 93px;
+    text-align: center;
+}
+.line1{
+    // display: inline-block;
+    height: .24rem;
+    position: absolute;
+    width: 1px;
+    background-color: #fff;
+    top: 0;
+    bottom: 0;
+    // right: 0;
+}
+.line2{
+    // display: inline-block;
+    height: .24rem;
+    position: absolute;
+    width: 1px;
+    background-color: #fff;
+    top: 0;
+    bottom: 0;
+    // right: 0;
+}
+//提示tips
+.tips{
+    text-align: center;
+    font-size: .13rem;
+    margin: .1rem auto;
+}
+.everyTime{
+    padding-bottom: .15rem;
+    padding-top: .1rem;
+    border-bottom: 1px solid rgba(233, 233, 233, 0.685);
+    border-top: 1px solid rgba(233, 233, 233, 0.685);
+}
+// 逐日 逐时
+.day{
+    width: 1.6rem;
+    height: .32rem;
+    // background-color: #666;
+    margin: 0 auto;
+    font-size: .14rem;
+    position: relative;
+}
+.day div{
+    text-align: center;
+    width: .8rem;
+    line-height:.32rem;
+    font-size: .18rem ;
+}
+.moveLine{
+    position: absolute;
+    left: .1rem;
+    bottom: 0;
+    width: .6rem;
+    margin: 0 auto;
+    height: 2px;
+    background-color: #fff;
+}
+.weatherData{
+    margin-top: .2rem;
+    height: 1.6rem;
+    // background-color: #a1a1aa;
+    //横向滚动条
+    // overflow: hidden;
+    width:100%;
+
+    overflow-x:auto ;
+}
+.weather-datas {
+    width: 6rem;
+    padding-left: .1rem;
+    height: 1.6rem;
+    color: #fff;
+    // line-height: 1.6rem;
+}
+.weather-datas .items{
+    float: left;
+    width: .8rem;
+    text-align: center;
+    font-size: .12rem;
+    margin: 0.15rem auto;
+    .iconfont{
+        font-size: .26rem !important;
+    }
+    
+}
+.weather-datas .items>div{
+    margin-top: .1rem;
+
+}
+.icon{
+    width: .2rem;
+    height: .2rem;
+    // background-color: red;
+    margin: .2rem auto;
+    
+}
+.wins{
+    width: .6rem;
+    height: .5rem;
+    line-height: .5rem;
+    // background-color: red;
+    margin: .2rem auto;
+    
+}
+.weatherTips{
+    margin: 0 auto;
+    width:100%;
+    text-align: center;
+    h3{
+        color:rgb(216, 70, 70);
+    }
+}
+.weatherTips>div{
+    margin-bottom: .1rem;
+}
+.weatherTips .tipp{
+    // margin: 0 auto;
+    // max-width: 90%;
+}
