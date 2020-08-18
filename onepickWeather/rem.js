@@ -29,11 +29,8 @@
         //4.调用方法
         rem();
 
-        //5.监听当屏幕窗口大小发生改变 调用自适应rem方法
-            //性能问题，执行程序次数过多
-        // this.onresize = function(){
-        //     rem();
-        // }
+        //5.监听当屏幕窗口大小发生改变 调用自适应rem方法  考虑性能问题：执行程序次数过多
+        
         let timers = [];
         window.onresize = function(){
             let timer = setTimeout(()=>{
@@ -42,9 +39,8 @@
                     clearTimeout(timers[i]);
                 }
                 timers =[];
-                //只输出一次
-                console.log('once')
-                //最后执行
+                
+                
                 rem();
                 
             },500)
